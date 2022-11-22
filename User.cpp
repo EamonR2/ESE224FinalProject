@@ -1,8 +1,8 @@
 #include "library.h"
-#include
-#include
-#include
-#include
+#include <string>
+#include <iomanip>
+#include <fstream>
+#include <iostream>
 using namespace std;
 
 User::User()
