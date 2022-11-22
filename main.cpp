@@ -23,31 +23,41 @@ int main()
 	cout << ctime(&givemetime) << endl;
 	string Name;
 
-
+	User User;
 	Student Student;
 	Teacher Teacher;
-	if (!Student.fileOpen(cin)) {
+	if (!User.fileOpen(cin)) {
 		cerr << "Error opening the student target file!" << endl;
 		exit(1);
 	}
 	cout << "\nSuccessfully opened the student target file!" << endl;
 
-	cout << "Enter the student name: ";
+	cout << "Enter the username: ";
 
-	bool role = Student.studentExists(cin);
+	bool role = User.userExists(cin);
 
+	if (role == 0)
+	{
+		user = "Student";
+	}
 	if (role == 1)
 	{
 		user = "Teacher";
 	}
+	else if (role == 2)
+	{
+		user = "Librarian";
+	}
 	else
 	{
-		user = "Student";
+		cout << "Error with user num!" << endl;
 	}
 
 
 	//communication between the student class and the book class
-	string temp = Student.getName();
+	string temp = User.getName();
+
+	User.myInfo(temp);
 
 
 	//books
@@ -61,7 +71,7 @@ int main()
 	book4.setreadersName(temp);
 	Book book5;
 	book5.setreadersName(temp);
-	
+
 	//only accessable by teachers 
 	Book book6;
 	book6.setreadersName(temp);
@@ -92,7 +102,7 @@ int main()
 		cout << "\t\t\t----------------------------------" << endl <<
 			"\t\t\t-     Welcome to My Library!     -"
 			<< endl << "\t\t\t----------------------------------" << endl <<
-			"\nWelcome Back "<< user << endl <<
+			"\nWelcome Back " << user << endl <<
 			"\nPlease choose:" << endl;
 		cout << "1 -- Search Book" << endl;
 		cout << "2 -- Borrow Book" << endl;
@@ -195,7 +205,7 @@ int main()
 
 		case 5:
 			if (role == 1) {
-			
+
 				cout << "Add Book" << endl;
 				Teacher.addBook();
 				break;
@@ -208,9 +218,9 @@ int main()
 		case 6:
 			if (role == 1) {
 				cout << "Delete Book" << endl;
-		
-					Teacher.deleteBook(delBook);
-				
+
+				Teacher.deleteBook(delBook);
+
 				break;
 			}
 			else
@@ -235,6 +245,3 @@ int main()
 
 
 }
-
-
-
