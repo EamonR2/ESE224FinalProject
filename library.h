@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <queue>
 using namespace std;
 
 
@@ -53,8 +54,52 @@ public:
 };
 
 
+class User
+{
+private:
+	string file_name = "student.txt";
+	fstream myFile;
+	string password;
+	string name;
+	queue<string> qnames;
+	queue<string> qpass;
+	int role;
 
-class Student
+public:
+	User();
+	bool fileOpen(istream& in);
+	bool userExists(istream& in);
+	void myInfo(string name);
+	string getName();
+	
+	
+	
+
+};
+
+class Librarian : public User
+{
+	private:
+
+	public:
+		
+
+};
+
+
+class Reader : public User
+{
+private:
+
+public:
+
+};
+
+
+
+
+
+class Student : public Reader
 {
 private:
 	string file_name = "student.txt";
@@ -77,7 +122,7 @@ public:
 };
 
 
-class Teacher
+class Teacher : public Reader
 {
 private:
 	string file_name;
@@ -95,7 +140,7 @@ public:
 	friend istream& operator >> (istream& in, const Student& booklimitea);
 
 	void addBook();
-	void deleteBook(Book *b1);
+	void deleteBook(Book* b1);
 
 
 };
