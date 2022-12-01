@@ -63,13 +63,15 @@ private:
 	string name;
 	queue<string> qnames;
 	queue<string> qpass;
+	string U1;
 	int role;
 
 public:
 	User();
 	bool fileOpen(istream& in);
-	bool userExists(istream& in);
+	int userExists(istream& in);
 	void myInfo(string name);
+	int checkRole(istream& in);
 	string getName();
 	
 	
@@ -86,6 +88,7 @@ class Librarian : public User
 		string name;
 		queue<string> qnames;
 		queue<string> qpass;
+		string U1;
 		bool L1;
 		int role;
 		int id;

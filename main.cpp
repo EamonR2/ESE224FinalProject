@@ -24,6 +24,7 @@ int main()
 	string Name;
 
 	User User;
+	
 	Student Student;
 	Teacher Teacher;
 	if (!User.fileOpen(cin)) {
@@ -31,10 +32,11 @@ int main()
 		exit(1);
 	}
 	cout << "\nSuccessfully opened the student target file!" << endl;
-
+	
 	cout << "Enter the username: ";
-
-	bool role = User.userExists(cin);
+	
+	
+	int role = User.userExists(cin);
 
 	if (role == 0)
 	{
@@ -104,15 +106,37 @@ int main()
 			<< endl << "\t\t\t----------------------------------" << endl <<
 			"\nWelcome Back " << user << endl <<
 			"\nPlease choose:" << endl;
-		cout << "1 -- Search Book" << endl;
-		cout << "2 -- Borrow Book" << endl;
-		cout << "3 -- Return Book" << endl;
-		cout << "4 -- Renew Book" << endl;
+		if (role == 1 || role == 0)
+		{
+			cout << "1 -- Search Book" << endl;
+			cout << "2 -- Borrow Book" << endl;
+			cout << "3 -- Return Book" << endl;
+			cout << "4 -- Renew Book" << endl;
+		}
+		if (role == 0)
+		{
+			cout << "7 -- Reserve Book" << endl;
+			cout << "8 -- Cancel Book" << endl;
+
+		}
 		if (role == 1)//if is a teacher, not accessable to students
 		{
 			cout << "5 -- Add Book" << endl;
 			cout << "6 -- Delete Book" << endl;
 		}
+		if (role == 2)
+		{
+			cout << "11 -- Add Books" << endl;
+			cout << "12 -- Delete Book" << endl;
+			cout << "13 -- Search Users" << endl;
+			cout << "14 -- Add Users" << endl;
+			cout << "15 -- Delete Users" << endl;
+
+			
+
+		}
+		cout << "9 -- My Information" << endl;
+		cout << "10 -- Change Password" << endl;
 		cout << "0 -- Log Out\n\n" << endl;
 		int choice;
 
@@ -229,6 +253,98 @@ int main()
 				break;
 			}
 
+		case 7:
+			if (role == 0)
+			{
+				cout << "Reserve Book" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+		case 8:
+			if (role == 0)
+			{
+				cout << "Cancel Book" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+		case 9:
+			if (role == 0)
+			{
+				cout << "My Information" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+			//librarian only
+		case 10:
+			if (role == 2)
+			{
+				cout << "Change Password" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+		case 11:
+			if (role == 2)
+			{
+				cout << "Add Books" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+		case 12:
+			if (role == 2)
+			{
+				cout << "Delete Book" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+		case 13:
+			if (role == 2)
+			{
+				cout << "Search Users" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+		case 14:
+			if (role == 2)
+			{
+				cout << "Add Users" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+		case 15:
+			if (role == 2)
+			{
+				cout << "Delete User" << endl;
+				//User.reserveBook();
+			}
+			else
+			{
+				cout << "Incorrect Input!" << endl;
+			}
+
 		default:
 			cout << "Incorrect Input!" << endl;
 		}
@@ -245,3 +361,4 @@ int main()
 
 
 }
+

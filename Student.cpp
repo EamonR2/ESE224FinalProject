@@ -1,3 +1,4 @@
+
 #include "library.h"
 #include <string>
 #include <iomanip>
@@ -9,52 +10,6 @@ Student::Student()
 {
 	file_name = "student.txt";
 }
-
-bool Student::fileOpen(istream& in)
-{
-
-	myFile.open(file_name);
-	return myFile.is_open();
-
-}
-
-bool Student::studentExists(istream& in)
-{
-	myFile.seekg(0, ios::beg);
-	string Name;
-	string Password;
-	int role;
-	cin >> Name;
-
-	while (!myFile.eof())
-	{
-		myFile >> role >> name >> password;
-		if (Name.compare(name) == 0)
-		{
-			cout << "\nEnter the password: ";
-			cin >> Password;
-			if (Password.compare(password) == 0)
-			{
-				cout << "\n\n\nCongratulations " << name << " you are in!" << endl;
-				if (role == 0)
-				{
-					cout << "You are a Student!" << endl;
-
-				}
-				else
-				{
-					cout << "You are a Teacher!" << endl;
-				}
-				myFile.seekg(0, ios::beg);
-				return role;
-			}
-		}
-	}
-
-	myFile.seekg(0, ios::beg);
-	cout << "Error, in student.txt, check role!" << endl;
-}
-
 
 ostream& operator << (ostream& out, const Student& booklimitst)
 {
@@ -93,3 +48,8 @@ string Student::getName()
 {
 	return name;
 }
+
+
+
+
+

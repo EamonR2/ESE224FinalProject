@@ -6,6 +6,10 @@
 #include <queue>
 using namespace std;
 
+
+
+
+
 User::User()
 {
 	file_name = "student.txt";
@@ -19,7 +23,7 @@ bool User::fileOpen(istream& in)
 }
 
 
-bool User::userExists(istream& in)
+int User::userExists(istream& in)
 {
 	myFile.seekg(0, ios::beg);
 	string Name;
@@ -64,6 +68,31 @@ bool User::userExists(istream& in)
 	}
 	myFile.seekg(0, ios::beg);
 	
+
+
+}
+
+
+int User::checkRole(istream& in)
+{
+	myFile.seekg(0, ios::beg);
+	string Name;
+	string Password;
+	int role;
+	cin >> Name;
+
+
+	while (!myFile.eof())
+	{
+		myFile >> role >> name >> password; //compares the role to allow role based actions by the user
+		if (Name.compare(name) == 0)
+		{
+			return role;
+			
+		}
+	}
+	myFile.seekg(0, ios::beg);
+
 
 
 }
