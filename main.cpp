@@ -59,7 +59,6 @@ int main()
 	//communication between the student class and the book class
 	string temp = User.getName();
 
-	User.myInfo(temp);
 
 
 	//books
@@ -274,26 +273,18 @@ int main()
 				cout << "Incorrect Input!" << endl;
 			}
 		case 9:
-			if (role == 0)
-			{
+			
 				cout << "My Information" << endl;
-				//User.reserveBook();
-			}
-			else
-			{
-				cout << "Incorrect Input!" << endl;
-			}
-			//librarian only
+				User.myInfo(temp);
+
+			
+			
 		case 10:
-			if (role == 2)
-			{
+			
 				cout << "Change Password" << endl;
 				//User.reserveBook();
-			}
-			else
-			{
-				cout << "Incorrect Input!" << endl;
-			}
+			//librarian only
+
 		case 11:
 			if (role == 2)
 			{
