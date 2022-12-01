@@ -80,9 +80,25 @@ public:
 class Librarian : public User
 {
 	private:
-
-	public:
+		string file_name = "student.txt";
+		fstream myFile;
+		string password;
+		string name;
+		queue<string> qnames;
+		queue<string> qpass;
+		bool L1;
+		int role;
+		int id;
+		string librarian;
 		
+	public:
+		Librarian();
+		void deleteUser(Librarian* L1);
+		void addUser(string name);
+	
+
+		
+
 
 };
 
