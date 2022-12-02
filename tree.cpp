@@ -3,6 +3,14 @@
 using namespace std;
 
 
+template <typename Type>
+Node<Type>* newNode(int data)
+{
+	Node* temp = new Node;
+	temp->data = data;
+	temp->left = temp->right = NULL;
+	return temp;
+}
 
 template <typename Type>
 void traverse(Node<Type>* head)
@@ -32,3 +40,19 @@ void insertion(Node<Type>* node, Type val)
 	tmp->next = node->next;
 	node->next = tmp;
 };
+
+template <typename Type>
+void printInorder(Node<Type>* node)
+{
+	if (node == NULL)
+		return;
+
+	
+	printInorder(node->left);
+
+	
+	cout << node->data << " ";
+
+	
+	printInorder(node->right);
+}

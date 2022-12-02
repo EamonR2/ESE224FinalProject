@@ -13,6 +13,7 @@ using namespace std;
 User::User()
 {
 	file_name = "student.txt";
+	penalty = 0;
 }
 
 bool User::fileOpen(istream& in)
@@ -66,6 +67,8 @@ int User::userExists(istream& in)
 			}
 		}
 	}
+	cout << "User not found, exiting...";
+	exit(1);
 	myFile.seekg(0, ios::beg);
 	
 
@@ -131,9 +134,99 @@ void User::myInfo(string name)
 		qnames.push(tempQueue1.back());
 		qpass.push(tempQueue2.back());
 	}
+	cout << "Max number of copies allowed: ";
+	if (role == 0)
+	{
+		cout << "5." << endl;
+	}
+	else if (role == 1)
+	{
+		cout << "10." << endl;
+	}
+	else
+	{
+		cout << "no limit (librarian)." << endl;
+
+	}
+	cout << "Penalties: " << penalty << endl;
+	
 }
 
 string User::getName()
 {
 	return name;
 }
+
+void User::incPenalty()
+{
+	penalty++;
+}
+
+void User::changePassword()
+{
+	User U1;
+	string password;
+
+
+	cout << "Enter a new password:";
+	cin >> password;
+	U1.setPassword(password);
+
+	cout << "Congratulations! Your password has been changed." << endl;
+
+}
+
+string User::getPassword() //function for getPassword in user.cpp
+{
+	return password;
+}
+void User::setPassword(string Password)//function for setPassword in user.cpp
+{
+	password = Password;
+}
+
+void User::searchUser(string username)//searches file for user
+{
+	myFile.seekg(0, ios::beg);
+	
+	
+	
+	
+
+
+	while (!myFile.eof())
+	{
+		myFile >> role >> name >> password; 
+		if (username.compare(name) == 0)
+		{
+			cout << "User found!" << endl;
+			cout << "Username: " << name <<  " Password:" << password << endl;
+			myFile.seekg(0, ios::beg);
+			break;
+		}
+		
+
+
+
+	}
+	myFile.seekg(0, ios::beg);
+}
+
+
+void User::reserveBook(string name)
+{
+	Book B1;
+	B1.searchBookString(cin);
+	B1.bookBorrow();
+	cout << "The Book has been reserved!" << endl;
+}
+
+
+void User::cancelBook(string name)
+{
+	Book B1;
+	B1.searchBookString(cin);
+	
+	cout << "The Book has been canceled!" << endl;
+}
+

@@ -83,7 +83,7 @@ void Teacher::addBook()
 	cout << "\nTitle: ";
 	cin >> title;
 	b1.setTitle(title);
-	
+
 
 	cout << "\nAuthor: ";
 	cin >> author;
@@ -98,17 +98,17 @@ void Teacher::addBook()
 	b1.setID(id);
 
 	//no need for readers name, start/exp dates, that will be added when the book is checked out
-	
+
 	//print book
 	cout << "\nThe New Book has been added!\n" << endl;
 	b1.printBook();
-	
+
 }//object passed in as an argument
 
 
-void Teacher::deleteBook(Book *b1)
+void Teacher::deleteBook(Book* b1)
 {
-	Book temp; 
+	Book temp;
 	string title;
 	cout << "Please enter the name of the book to be deleted: ";
 	cin >> title;
@@ -126,19 +126,13 @@ void Teacher::deleteBook(Book *b1)
 	{
 		cout << "Incorrect Entry!!" << endl;
 	}
-	
-	
-	
 
-	
+
+
+
+
 
 
 
 
 }
-
-	
-	
-
-
-

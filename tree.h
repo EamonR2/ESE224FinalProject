@@ -6,7 +6,7 @@ template <typename Type>
 struct Node
 {
 	Type value;
-	Node* next;
+	Node* next, data, *left, *right;
 	Node() : next(nullptr) {}
 	Node(Type x, Node* ptr = nullptr) : value(x), next(ptr) {}
 	~Node() {}

@@ -65,6 +65,8 @@ private:
 	queue<string> qpass;
 	string U1;
 	int role;
+	int penalty;
+	
 
 public:
 	User();
@@ -72,8 +74,14 @@ public:
 	int userExists(istream& in);
 	void myInfo(string name);
 	int checkRole(istream& in);
+	void incPenalty();	//simply increment penalty if one is found
+	void changePassword();
 	string getName();
-	
+	string getPassword();
+	void setPassword(string password);
+	void searchUser(string username);
+	void reserveBook(string name);
+	void cancelBook(string name);
 	
 	
 
@@ -88,7 +96,7 @@ class Librarian : public User
 		string name;
 		queue<string> qnames;
 		queue<string> qpass;
-		string U1;
+		string U1 = "temp";
 		bool L1;
 		int role;
 		int id;
@@ -105,7 +113,7 @@ class Librarian : public User
 
 };
 
-
+//since there is inheritance, no need for reader functions 
 class Reader : public User
 {
 private:
@@ -131,8 +139,7 @@ private:
 
 public:
 	Student();
-	bool fileOpen(istream& in);
-	bool studentExists(istream& in);
+	
 	string getName();
 	friend ostream& operator << (ostream& out, const Student& booklimitst);
 	friend istream& operator >> (istream& in, const Student& booklimitst);
